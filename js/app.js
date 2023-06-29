@@ -24,10 +24,10 @@ $(document).ready(function() {
                     return (
                         "<button class='btn btn-sm btn-danger eliminar-btn' data-id='" +
                         row.id +
-                        "'>Eliminar</button> " +
+                        "'><i class='bi bi-trash3'></i>Eliminar</button> " +
                         "<button class='btn btn-sm btn-primary editar-btn' data-id='" +
                         row.id +
-                        "'>Editar</button>"
+                        "'><i class='bi bi-pencil-square'></i>Editar</button>"
                     );
                 }
             }
