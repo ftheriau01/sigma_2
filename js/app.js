@@ -81,15 +81,6 @@ $(document).ready(function() {
         $("#editarModal").modal("show");
     });
 
-    // Limpiar campos del formulario al abrir el modal de agregar
-    $("#editarModal").on("show.bs.modal", function() {
-        $("#addCodSigma").val("");
-        $("#addCodItem").val("");
-        $("#addMarca").val("");
-        $("#addDepartamento").val("");
-        $("#addDescripcion").val("");
-    });
-
     // Limpiar campos del formulario al cerrar el modal de editar
     $("#editarModal").on("hidden.bs.modal", function() {
         $("#editId").val("");
@@ -134,23 +125,38 @@ $(document).ready(function() {
                     tabla.ajax.reload();
                 }
             });
-        } else {
-            // Si no hay un ID, es un nuevo registro
-            $.ajax({
-                url: "agregar_registro.php",
-                type: "POST",
-                data: {
-                    codSigma: codSigma,
-                    codItem: codItem,
-                    marca: marca,
-                    departamento: departamento,
-                    descripcion: descripcion
-                },
-                success: function(data) {
-                    $("#agregarModal").modal("hide");
-                    tabla.ajax.reload();
-                }
-            });
-        }
+        } 
+            
+    });
+    $("#guardar").click(function() {
+        var codSigma = $("#addCodSigma").val();
+        var codItem = $("#addCodItem").val();
+        var marca = $("#addMarca").val();
+        var departamento = $("#addDepartamento").val();
+        var descripcion = $("#addDescripcion").val();
+
+        $.ajax({
+            url: "agregar_registro.php",
+            type: "POST",
+            data: {
+                codSigma: codSigma,
+                codItem: codItem,
+                marca: marca,
+                departamento: departamento,
+                descripcion: descripcion
+            },
+            success: function(data) {
+                $("#agregarModal").modal("hide");
+                tabla.ajax.reload();
+            }
+        });
+        $("#agregarModal").on("hidden.bs.modal", function(){
+            $("#addCodSigma").val("");
+            $("#addCodItem").val("");
+            $("#addMarca").val("");
+            $("#addDepartamento").val("");
+            $("#addDescripcion").val("");
+        });
     });
 });
+

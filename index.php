@@ -10,32 +10,35 @@
     <link rel="stylesheet" href="./css/app.css">
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand text-white fs-3 fw-bold" href="#"><img src="./img/favicon.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-      Sigma CR</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ">
-          <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Pricing</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+  <img src="./img/favicon.png" width="35" height="25" class="d-inline-block align-top" alt="">
+    Sigma CR
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+    </ul>
+    <span class="navbar-btn">
+      <button class="btn btn-primary" data-toggle="modal" data-target="#agregarModal">Agregar Registro</button>
+    </span>
+  </div>
+</nav>
   <div class="container mt-4">
         <h1 class="text-center text-primary fw-bolder">Sistema Sigma</h1>
         <div class="mb-2">
-          <button class="btn btn-primary" data-toggle="modal" data-target="#editarModal">Agregar Registro</button>
+          
         </div>
         <div class="">
         <table class="display table table-striped table-hover table-sm" id="tablaProductos" style="width:100%">
@@ -45,7 +48,7 @@
                     <th>Código Sigma</th>
                     <th>Código Item</th>
                     <th>Marca</th>
-                    <th>Departament</th>
+                    <th>Depto.</th>
                     <th>Descripción</th>
                     <th>Acciones</th>
                 </tr>
@@ -57,7 +60,7 @@
       </div>
     
      <!-- Modal para editar/agregar registro -->
-     <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+     <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
         <div class="modal-dialog" >
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
@@ -105,6 +108,60 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-primary" id="guardarEdicion">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <!-- Modal para agregar registro -->
+      <div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="agregarModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="addModalLabel">Agregar Producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"> 
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mb-2">
+                        <label for="addCodSigma">Código Sigma:</label>
+                        <input type="number" class="form-control" id="addCodSigma" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="addCodItem">Código Item:</label>
+                        <input type="number" class="form-control" id="addCodItem" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="addMarca">Marca:</label>
+                        <select class="form custom-select"  id="addMarca" required>
+                          <option selected disabled>Seleccione una marca</option>
+                          <option value="Del Prado">Del Prado</option>
+                          <option value="Monte Verde">Monte Verde</option>
+                          <option value="La Villita">La Villita</option>
+                          <option value="Zurqui">Zurqui</option>
+                          <option value="Fud">Fud</option>
+                          <option value="San Rafael">San Rafael</option>
+                          <option value="Yoplait">Yoplait</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="addDepartamento">Departamento:</label>
+                        <select class="form custom-select"  id="addDepartamento" required>
+                          <option selected disabled>Seleccione un Departamento</option>
+                          <option value="90">90</option>
+                          <option value="97">97</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="addDescripcion">Descripción:</label>
+                        <input type="text" class="form-control" id="addDescripcion" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="guardar">Guardar Cambios</button>
                 </div>
             </div>
         </div>
