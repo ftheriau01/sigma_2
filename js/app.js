@@ -3,9 +3,13 @@ $(document).ready(function() {
         language: {
             url: "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
         },
+        responsive: true,
         ajax: {
             url: "./cargar_registros.php",
             type: "GET"
+        },
+        select: {
+            style: "multi" // Permite la selección múltiple
         },
         columns: [
             { data: "id" },
@@ -26,6 +30,25 @@ $(document).ready(function() {
                         "'>Editar</button>"
                     );
                 }
+            }
+        ],
+        dom: "Bfrtip",
+        buttons: [
+            {
+                extend: "copy",
+                className: "button-copy" // Clase de estilo personalizado para el botón de copiar
+            },
+            {
+                extend: "excel",
+                className: "button-excel" // Clase de estilo personalizado para el botón de exportación a Excel
+            },
+            {
+                extend: "pdf",
+                className: "button-pdf" // Clase de estilo personalizado para el botón de exportación a PDF
+            },
+            {
+                extend: "csv",
+                className: "button-csv" // Clase de estilo personalizado para el botón de exportación a CSV
             }
         ]
     });

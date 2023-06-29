@@ -3,3 +3,26 @@
     padding: 0%;
     box-sizing: border-box;
 }
+/* Estilo para el botón de exportación a Excel */
+.button-excel {
+    background-color: rgb(54, 195, 54) !important;
+    color: white !important;
+}
+
+/* Estilo para el botón de exportación a PDF */
+.button-pdf {
+    background-color: rgb(189, 54, 54) !important;
+    color: white !important;
+}
+
+/* Estilo para el botón de exportación a CSV */
+.button-csv {
+    background-color: rgb(209, 209, 54) !important;
+    color: black !important;
+}
+
+/* Estilo para el botón de copiar al portapapeles */
+.button-copy {
+    background-color: rgb(54, 54, 194) !important;
+    color: white !important;
+}

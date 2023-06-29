@@ -6,7 +6,8 @@
     <title>Sigma Alimetos CR</title>
     <link rel="shortcut icon" href="./img/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"> -->
+    <link href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-html5-2.3.6/r-2.4.1/sl-1.6.2/datatables.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="./css/app.css">
   </head>
   <body>
@@ -21,32 +22,39 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="https://www.sigma-alimentos.com/">Empresa<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="https://www.sigma-alimentos.com/codigo-de-conducta/">Codigo de conducta</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="https://www.sigma-alimentos.com/nuestros-valores/">Nustros valores</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+          Tiendas
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Megasuper</a>
+          <a class="dropdown-item" href="#">Perimercado</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
       </li>
     </ul>
     <span class="navbar-btn">
-      <button class="btn btn-primary" data-toggle="modal" data-target="#agregarModal">Agregar Registro</button>
+      <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#agregarModal">Agregar Registro</button>
     </span>
   </div>
 </nav>
-  <div class="container mt-4">
-        <h1 class="text-center text-primary fw-bolder">Sistema Sigma</h1>
-        <div class="mb-2">
-          
-        </div>
-        <div class="">
-        <table class="display table table-striped table-hover table-sm" id="tablaProductos" style="width:100%">
+  <div class="container-fluid my-2">
+        <h1 class="text-center text-danger font-weight-bolder fw-bolder shadow-sm">Sigma-Waltmart</h1>
+      <div class="table-reponsive">
+        <table class="display table table-striped table-hover table-sm responsive nowrap" id="tablaProductos" style="width:100%">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Código Sigma</th>
-                    <th>Código Item</th>
+                    <th>Cód. Sigma</th>
+                    <th>Cód. Item</th>
                     <th>Marca</th>
                     <th>Depto.</th>
                     <th>Descripción</th>
@@ -83,13 +91,13 @@
                         <label for="editMarca">Marca:</label>
                         <select class="form custom-select"  id="editMarca" required>
                           <option selected disabled>Seleccione una marca</option>
-                          <option value="Del Prado">Del Prado</option>
-                          <option value="Monte Verde">Monte Verde</option>
-                          <option value="La Villita">La Villita</option>
-                          <option value="Zurqui">Zurqui</option>
-                          <option value="Fud">Fud</option>
-                          <option value="San Rafael">San Rafael</option>
-                          <option value="Yoplait">Yoplait</option>
+                          <option value="Del PRADO">Del Prado</option>
+                          <option value="MONTE VERDE">Monte Verde</option>
+                          <option value="LA VILLITA">La Villita</option>
+                          <option value="ZURQUI">Zurqui</option>
+                          <option value="FUD">Fud</option>
+                          <option value="SAN RAFEL">San Rafael</option>
+                          <option value="YOPLAIT">Yoplait</option>
                         </select>
                     </div>
                     <div class="form-group mb-2">
@@ -137,13 +145,13 @@
                         <label for="addMarca">Marca:</label>
                         <select class="form custom-select"  id="addMarca" required>
                           <option selected disabled>Seleccione una marca</option>
-                          <option value="Del Prado">Del Prado</option>
-                          <option value="Monte Verde">Monte Verde</option>
-                          <option value="La Villita">La Villita</option>
-                          <option value="Zurqui">Zurqui</option>
-                          <option value="Fud">Fud</option>
-                          <option value="San Rafael">San Rafael</option>
-                          <option value="Yoplait">Yoplait</option>
+                          <option value="Del PRADO">Del Prado</option>
+                          <option value="MONTE VERDE">Monte Verde</option>
+                          <option value="LA VILLITA">La Villita</option>
+                          <option value="ZURQUI">Zurqui</option>
+                          <option value="FUD">Fud</option>
+                          <option value="SAN RAFEL">San Rafael</option>
+                          <option value="YOPLAIT">Yoplait</option>
                         </select>
                     </div>
                     <div class="form-group mb-2">
@@ -167,7 +175,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-2">
   <figure class="text-center">
     <blockquote class="blockquote">
       <p>Aqui puede encontrar codigos de los productos de sigma.</p>
@@ -180,7 +188,10 @@
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-html5-2.3.6/r-2.4.1/sl-1.6.2/datatables.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>
