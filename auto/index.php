@@ -4,16 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sigma Alimetos CR</title>
-    <link rel="shortcut icon" href="./img/favicon.png">
+    <link rel="shortcut icon" href="../img/favicon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/r-2.4.1/rg-1.3.1/sp-2.1.2/sl-1.6.2/datatables.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="./css/app.css">
+    <link href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-html5-2.3.6/r-2.4.1/sl-1.6.2/datatables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/app.css">
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
-  <img src="./img/favicon.png" width="35" height="25" class="d-inline-block align-top" alt="">
+  <img src="../img/favicon.png" width="35" height="25" class="d-inline-block align-top" alt="">
     Sigma CR
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,9 +35,9 @@
         <i class="bi bi-shop"></i>Tiendas
         </a>
         <div class="dropdown-menu bg-dark">
-          <a class="dropdown-item bg-success text-white" href="./megasuper/index.php">Megasuper</a>
-          <a class="dropdown-item bg-danger text-white" href="./peri/index.php">Perimercado</a>
-          <a class="dropdown-item bg-warning text-white" href="./auto/index.php">AutoMercado</a>
+          <a class="dropdown-item bg-success text-white" href="#">Megasuper</a>
+          <a class="dropdown-item bg-danger text-white" href="#">Perimercado</a>
+          <a class="dropdown-item bg-warning text-white" href="#">Something else here</a>
         </div>
       </li>
     </ul>
@@ -46,17 +46,16 @@
     </span>
   </div>
 </nav>
-  <div class="container-fluid my-2">
-        <h1 class="text-center text-danger font-weight-bolder fw-bolder shadow-sm">Sigma-Waltmart</h1>
-      <div class="table-reponsive">
+<div class="container-fluid">
+    <h1 class="text-center text-danger font-weight-bolder fw-bolder shadow-sm">Sigma-AutoMercado</h1>
+    <div class="table-reponsive">
         <table class="display table table-striped table-hover table-sm responsive nowrap" id="tablaProductos" style="width:100%">
             <thead class="bg-secondary">
                 <tr class="text-white">
                     <th>ID</th>
                     <th>Cód. Sigma</th>
-                    <th>Cód. Item</th>
+                    <th>Cód. Auto</th>
                     <th>Marca</th>
-                    <th>Depto.</th>
                     <th>Descripción</th>
                     <th>Acciones</th>
                 </tr>
@@ -66,8 +65,7 @@
             </tbody>
         </table>
       </div>
-    
-<!-- Modal para editar/agregar registro -->
+</div>
 <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
         <div class="modal-dialog" >
             <div class="modal-content">
@@ -96,17 +94,12 @@
                           <option value="LA VILLITA">La Villita</option>
                           <option value="ZURQUI">Zurqui</option>
                           <option value="FUD">Fud</option>
+                          <option value="ZAR">Zar</option>
                           <option value="SAN RAFAEL">San Rafael</option>
+                          <option value="FIORUCCI">Fiorucci</option>
+                          <option value="LEKKERLAND">Lekkerland</option>
+                          <option value="CAFE OLE">Cafe Ole</option>
                           <option value="YOPLAIT">Yoplait</option>
-                        </select>
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="editDepartamento">Departamento:</label>
-                        <select class="form custom-select"  id="editDepartamento" required>
-                          <option selected disabled>Seleccione un Departamento</option>
-                          <option value="90">90</option>
-                          <option value="97">97</option>
-                          <option value="98">98</option>
                         </select>
                     </div>
                     <div class="form-group mb-2">
@@ -123,8 +116,8 @@
     </div>
 </div>
 
-<!-- Modal para agregar registro -->
-<div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="agregarModalLabel" aria-hidden="true">
+      <!-- Modal para agregar registro -->
+      <div class="modal fade" id="agregarModal" tabindex="-1" aria-labelledby="agregarModalLabel" aria-hidden="true">
         <div class="modal-dialog" >
             <div class="modal-content">
                 <div class="modal-header bg-danger text-white">
@@ -146,22 +139,17 @@
                         <label for="addMarca">Marca:</label>
                         <select class="form custom-select"  id="addMarca" required>
                           <option selected disabled>Seleccione una marca</option>
-                          <option value="DEL PRADO">Del Prado</option>
+                          <option value="Del PRADO">Del Prado</option>
                           <option value="MONTE VERDE">Monte Verde</option>
                           <option value="LA VILLITA">La Villita</option>
                           <option value="ZURQUI">Zurqui</option>
                           <option value="FUD">Fud</option>
+                          <option value="ZAR">Zar</option>
                           <option value="SAN RAFAEL">San Rafael</option>
+                          <option value="FIORUCCI">Fiorucci</option>
+                          <option value="LEKKERLAND">Lekkerland</option>
+                          <option value="CAFE OLE">Cafe Ole</option>
                           <option value="YOPLAIT">Yoplait</option>
-                        </select>
-                    </div>
-                    <div class="form-group mb-2">
-                        <label for="addDepartamento">Departamento:</label>
-                        <select class="form custom-select"  id="addDepartamento" required>
-                          <option selected disabled>Seleccione un Departamento</option>
-                          <option value="90">90</option>
-                          <option value="97">97</option>
-                          <option value="98">98</option>
                         </select>
                     </div>
                     <div class="form-group mb-2">
@@ -184,8 +172,7 @@
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase">Franklin Theriault Soza.</h5>
         <p>
-          Podras encontrar los codigos SAP con su correpomdiente codigo
-          de ITEMS de los productos y su descripcion
+          Podras encontrar los codigos SAP com de ITEMS de los productos y su descripcion
           inscritos en las cadenas donde se venden.
         </p>
       </div>
@@ -194,13 +181,13 @@
 
         <ul class="list-unstyled mb-0">
           <li>
-            <a href="./megasuper/index.php" class="text-white">Megasuper</a>
+            <a href="#!" class="text-white">Megasuper</a>
           </li>
           <li>
-            <a href="./peri/index.php" class="text-white">Perimercado</a>
+            <a href="#!" class="text-white">Perimercado</a>
           </li>
           <li>
-            <a href="./auto/index.php" class="text-white">AutoMercado</a>
+            <a href="../" class="text-white">Maxi-Pali</a>
           </li>
         </ul>
       </div>
@@ -225,12 +212,12 @@
     <a class="text-white" href="#">Franklin Theriault S.</a>
   </div>
 </footer>
-    <script src="./js/jquery-3.6.0.min.js"></script>
-    <script src="./js/app.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/auto.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-    <script src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/r-2.4.1/rg-1.3.1/sl-1.6.2/datatables.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-html5-2.3.6/r-2.4.1/sl-1.6.2/datatables.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

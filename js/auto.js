@@ -5,7 +5,7 @@ $(document).ready(function() {
         },
         responsive: true,
         ajax: {
-            url: "./cargar_registros.php",
+            url: "../auto/cargar_registros.php",
             type: "GET"
         },
         select: {
@@ -16,11 +16,10 @@ $(document).ready(function() {
         },
         columns: [
             { data: "id" },
-            { data: "cod_sigma" },
-            { data: "cod_item" },
+            { data: "sap" },
+            { data: "codauto" },
             { data: "marca" },
-            { data: "departamento" },
-            { data: "descripcion" },
+            { data: "descrip" },
             {
                 data: null,
                 render: function(data, type, row) {
@@ -72,7 +71,7 @@ $(document).ready(function() {
             if (result.isConfirmed) {
                 // Realizar la eliminación del registro
                 $.ajax({
-                    url: "eliminar_registro.php",
+                    url: "../auto/eliminar_registro.php",
                     type: "POST",
                     data: { id: id },
                     success: function(data) {
@@ -91,18 +90,16 @@ $(document).ready(function() {
     $(document).on("click", ".editar-btn", function() {
         var id = $(this).data("id");
         var row = tabla.row($(this).closest("tr")).data();
-        var codSigma = row.cod_sigma;
-        var codItem = row.cod_item;
+        var sap = row.sap;
+        var codauto = row.codauto;
         var marca = row.marca;
-        var departamento = row.departamento;
-        var descripcion = row.descripcion;
+        var descrip = row.descrip;
 
         $("#editId").val(id);
-        $("#editCodSigma").val(codSigma);
-        $("#editCodItem").val(codItem);
+        $("#editCodSigma").val(sap);
+        $("#editCodItem").val(codauto);
         $("#editMarca").val(marca);
-        $("#editDepartamento").val(departamento);
-        $("#editDescripcion").val(descripcion);
+        $("#editDescripcion").val(descrip);
 
         $("#editarModal").modal("show");
     });
@@ -113,22 +110,20 @@ $(document).ready(function() {
         $("#editCodSigma").val("");
         $("#editCodItem").val("");
         $("#editMarca").val("");
-        $("#editDepartamento").val("");
         $("#editDescripcion").val("");
     });
 
     // Guardar cambios de edición o agregar nuevo registro
     $("#guardarEdicion").click(function() {
         var id = $("#editId").val();
-        var codSigma = $("#editCodSigma").val();
-        var codItem = $("#editCodItem").val();
+        var sap = $("#editCodSigma").val();
+        var codauto = $("#editCodItem").val();
         var marca = $("#editMarca").val();
-        var departamento = $("#editDepartamento").val();
-        var descripcion = $("#editDescripcion").val();
+        var descrip = $("#editDescripcion").val();
 
         // Realizar las validaciones necesarias
 
-        if (!codSigma || !codItem || !descripcion) {
+        if (!sap || !codauto || !descrip) {
             Swal.fire("Error", "Por favor, completa todos los campos", "error");
             return;
         }
@@ -136,15 +131,14 @@ $(document).ready(function() {
         if (id) {
             // Si existe un ID, es una edición
             $.ajax({
-                url: "guardar_edicion.php",
+                url: "../auto/guardar_edicion.php",
                 type: "POST",
                 data: {
                     id: id,
-                    codSigma: codSigma,
-                    codItem: codItem,
+                    sap: sap,
+                    codauto: codauto,
                     marca: marca,
-                    departamento: departamento,
-                    descripcion: descripcion
+                    descrip: descrip
                 },
                 success: function(data) {
                     $("#editarModal").modal("hide");
@@ -155,21 +149,19 @@ $(document).ready(function() {
             
     });
     $("#guardar").click(function() {
-        var codSigma = $("#addCodSigma").val();
-        var codItem = $("#addCodItem").val();
+        var sap = $("#addCodSigma").val();
+        var codauto = $("#addCodItem").val();
         var marca = $("#addMarca").val();
-        var departamento = $("#addDepartamento").val();
-        var descripcion = $("#addDescripcion").val();
+        var descrip = $("#addDescripcion").val();
 
         $.ajax({
-            url: "agregar_registro.php",
+            url: "../auto/agregar_registro.php",
             type: "POST",
             data: {
-                codSigma: codSigma,
-                codItem: codItem,
+                sap: sap,
+                codauto: codauto,
                 marca: marca,
-                departamento: departamento,
-                descripcion: descripcion
+                descrip: descrip
             },
             success: function(data) {
                 $("#agregarModal").modal("hide");
@@ -180,7 +172,6 @@ $(document).ready(function() {
             $("#addCodSigma").val("");
             $("#addCodItem").val("");
             $("#addMarca").val("");
-            $("#addDepartamento").val("");
             $("#addDescripcion").val("");
         });
     });

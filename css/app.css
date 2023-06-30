@@ -3,26 +3,32 @@
     padding: 0%;
     box-sizing: border-box;
 }
-/* Estilo para el botón de exportación a Excel */
+body{
+    background-color: rgba(255, 254, 254, 0.925)!important;
+}
 .button-excel {
     background-color: rgb(54, 195, 54) !important;
     color: white !important;
 }
-
-/* Estilo para el botón de exportación a PDF */
 .button-pdf {
     background-color: rgb(189, 54, 54) !important;
     color: white !important;
 }
-
-/* Estilo para el botón de exportación a CSV */
 .button-csv {
     background-color: rgb(209, 209, 54) !important;
     color: black !important;
 }
-
-/* Estilo para el botón de copiar al portapapeles */
 .button-copy {
     background-color: rgb(54, 54, 194) !important;
     color: white !important;
+}
+div.dataTables_filter label {
+    font-size: 1.5rem !important;
+    font-weight: bolder !important;
+    color: rgb(224, 54, 54);
+}
+div.dataTables_wrapper div.dataTables_filter input {
+    font-size: 1.2rem !important;
+    font-weight: bolder !important;
+    color: rgb(92, 92, 92) !important;
 }
