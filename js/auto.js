@@ -9,16 +9,11 @@ $(document).ready(function() {
             type: "GET"
         },
         select: {
-            style: "multi" // Permite la selección múltiple
+            style: "multi"
         },
-        // rowGroup: {
-            // dataSrc: 'marca' // Reemplaza 'nombreColumnaPersonalizada' por el nombre de tu columna personalizada
-        // },
         searchPanes: {
-            viewTtotal:true
-            //visible: false,
-           // layout:'marca',
-           //columns: -2 // Indica los índices de las columnas que deseas habilitar para la búsqueda en los paneles (reemplaza con los índices correctos)
+            visibleTotal:false,
+            show: false
         },
         columns: [
             { data: "id" },
@@ -44,26 +39,27 @@ $(document).ready(function() {
         buttons: [
             {
                 extend: "print",
-                className: "button-print" // Clase de estilo personalizado para el botón de copiar
+                className: "button-print" 
             },
             {
                 extend: "copy",
-                className: "button-copy" // Clase de estilo personalizado para el botón de copiar
+                className: "button-copy" 
             },
             {
                 extend: "excel",
-                className: "button-excel" // Clase de estilo personalizado para el botón de exportación a Excel
+                className: "button-excel" 
             },
             {
                 extend: "pdf",
-                className: "button-pdf" // Clase de estilo personalizado para el botón de exportación a PDF
+                className: "button-pdf" 
             },
             {
                 extend: "csv",
-                className: "button-csv" // Clase de estilo personalizado para el botón de exportación a CSV
+                className: "button-csv" 
             }
         ],
-        stateSave:true
+        stateSave:true,
+        serveSide:true
     });
 
     $(document).on("click", ".eliminar-btn", function(event) {

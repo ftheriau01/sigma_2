@@ -9,16 +9,11 @@ $(document).ready(function() {
             type: "GET"
         },
         select: {
-            style: "multi" // Permite la selección múltiple
+            style: "multi"
         },
-       // rowGroup: {
-           // dataSrc: 'marca' // Reemplaza 'nombreColumnaPersonalizada' por el nombre de tu columna personalizada
-        //},
         searchPanes: {
-            viewTtotal:true
-            //visible: false,
-           // layout:'marca',
-           //columns: -2 // Indica los índices de las columnas que deseas habilitar para la búsqueda en los paneles (reemplaza con los índices correctos)
+            vixibleTotal:false,
+            show: false
         },
         columns: [
             { data: "id"},
@@ -45,23 +40,23 @@ $(document).ready(function() {
         buttons: [
             {
                 extend: "print",
-                className: "button-print" // Clase de estilo personalizado para el botón de copiar
+                className: "button-print" 
             },
             {
                 extend: "copy",
-                className: "button-copy" // Clase de estilo personalizado para el botón de copiar
+                className: "button-copy" 
             },
             {
                 extend: "excel",
-                className: "button-excel" // Clase de estilo personalizado para el botón de exportación a Excel
+                className: "button-excel" 
             },
             {
                extend: "pdf",
-               className: "button-pdf" // Clase de estilo personalizado para el botón de exportación a PDF
+               className: "button-pdf" 
             },
             {
                 extend: "csv",
-                className: "button-csv" // Clase de estilo personalizado para el botón de exportación a CSV
+                className: "button-csv" 
             }
         ],
         stateSave:true
@@ -81,13 +76,12 @@ $(document).ready(function() {
             cancelButtonText: "Cancelar"
         }).then((result) => {
             if (result.isConfirmed) {
-                // Realizar la eliminación del registro
                 $.ajax({
                     url: "eliminar_registro.php",
                     type: "POST",
                     data: { id: id },
                     success: function(data) {
-                        tabla.ajax.reload(); // Recargar la tabla después de eliminar el registro
+                        tabla.ajax.reload(); 
                         Swal.fire("Eliminado", "El registro ha sido eliminado", "success");
                     },
                     error: function(xhr, status, error) {
@@ -98,7 +92,6 @@ $(document).ready(function() {
         });
     });
 
-    // Editar un registro
     $(document).on("click", ".editar-btn", function(event) {
         event.preventDefault();
         var id = $(this).data("id");
@@ -119,7 +112,6 @@ $(document).ready(function() {
         $("#editarModal").modal("show");
     });
 
-    // Limpiar campos del formulario al cerrar el modal de editar
     $("#editarModal").on("hidden.bs.modal", function(event) {
         event.preventDefault();
         $("#editId").val("");
@@ -130,7 +122,6 @@ $(document).ready(function() {
         $("#editDescripcion").val("");
     });
 
-    // Guardar cambios de edición o agregar nuevo registro
     $("#guardarEdicion").click(function(event) {
         event.preventDefault();
         var id = $("#editId").val();
@@ -140,15 +131,12 @@ $(document).ready(function() {
         var departamento = $("#editDepartamento").val();
         var descripcion = $("#editDescripcion").val();
 
-        // Realizar las validaciones necesarias
-
         if (!codSigma || !codItem || !descripcion) {
             Swal.fire("Error", "Por favor, completa todos los campos", "error");
             return;
         }
 
         if (id) {
-            // Si existe un ID, es una edición
             $.ajax({
                 url: "guardar_edicion.php",
                 type: "POST",
@@ -165,8 +153,7 @@ $(document).ready(function() {
                     tabla.ajax.reload();
                 }
             });
-        } 
-            
+        }     
     });
     $("#agregarModal").on('shown.bs.modal', function () {
         $("#guardar").click(function(event) {
