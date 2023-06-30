@@ -11,9 +11,9 @@ $(document).ready(function() {
         select: {
             style: "multi" // Permite la selección múltiple
         },
-        rowGroup: {
-            dataSrc: 'marca' // Reemplaza 'nombreColumnaPersonalizada' por el nombre de tu columna personalizada
-        },
+        // rowGroup: {
+            // dataSrc: 'marca' // Reemplaza 'nombreColumnaPersonalizada' por el nombre de tu columna personalizada
+        // },
         columns: [
             { data: "id" },
             { data: "sap" },
@@ -34,7 +34,7 @@ $(document).ready(function() {
                 }
             }
         ],
-        dom: "Bfrtip",
+        dom: "BfrtipP",
         buttons: [
             {
                 extend: "copy",

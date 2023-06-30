@@ -11,9 +11,13 @@ $(document).ready(function() {
         select: {
             style: "multi" // Permite la selección múltiple
         },
-        rowGroup: {
-            dataSrc: 'marca' // Reemplaza 'nombreColumnaPersonalizada' por el nombre de tu columna personalizada
-        },
+       // rowGroup: {
+           // dataSrc: 'marca' // Reemplaza 'nombreColumnaPersonalizada' por el nombre de tu columna personalizada
+        //},
+        //searchPanes: {
+           // layout:'marca',
+           //columns: -2 // Indica los índices de las columnas que deseas habilitar para la búsqueda en los paneles (reemplaza con los índices correctos)
+        //},
         columns: [
             { data: "id" },
             { data: "cod_sigma" },
@@ -35,7 +39,7 @@ $(document).ready(function() {
                 }
             }
         ],
-        dom: "Bfrtip",
+        dom: "BfrtipP",
         buttons: [
             {
                 extend: "copy",
