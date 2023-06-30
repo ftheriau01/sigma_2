@@ -14,12 +14,14 @@ $(document).ready(function() {
        // rowGroup: {
            // dataSrc: 'marca' // Reemplaza 'nombreColumnaPersonalizada' por el nombre de tu columna personalizada
         //},
-        //searchPanes: {
+        searchPanes: {
+            viewTtotal:true
+            //visible: false,
            // layout:'marca',
            //columns: -2 // Indica los índices de las columnas que deseas habilitar para la búsqueda en los paneles (reemplaza con los índices correctos)
-        //},
+        },
         columns: [
-            { data: "id" },
+            { data: "id"},
             { data: "cod_sigma" },
             { data: "cod_item" },
             { data: "marca" },
@@ -42,6 +44,10 @@ $(document).ready(function() {
         dom: "BfrtipP",
         buttons: [
             {
+                extend: "print",
+                className: "button-print" // Clase de estilo personalizado para el botón de copiar
+            },
+            {
                 extend: "copy",
                 className: "button-copy" // Clase de estilo personalizado para el botón de copiar
             },
@@ -50,19 +56,20 @@ $(document).ready(function() {
                 className: "button-excel" // Clase de estilo personalizado para el botón de exportación a Excel
             },
             {
-                extend: "pdf",
-                className: "button-pdf" // Clase de estilo personalizado para el botón de exportación a PDF
+               extend: "pdf",
+               className: "button-pdf" // Clase de estilo personalizado para el botón de exportación a PDF
             },
             {
                 extend: "csv",
                 className: "button-csv" // Clase de estilo personalizado para el botón de exportación a CSV
             }
-        ]
+        ],
+        stateSave:true
     });
-
-    $(document).on("click", ".eliminar-btn", function() {
+      
+    $(document).on("click", ".eliminar-btn", function(event) {
+        event.preventDefault();
         var id = $(this).data("id");
-
         Swal.fire({
             title: "¿Estás seguro?",
             text: "Esta acción no se puede deshacer",
@@ -92,7 +99,8 @@ $(document).ready(function() {
     });
 
     // Editar un registro
-    $(document).on("click", ".editar-btn", function() {
+    $(document).on("click", ".editar-btn", function(event) {
+        event.preventDefault();
         var id = $(this).data("id");
         var row = tabla.row($(this).closest("tr")).data();
         var codSigma = row.cod_sigma;
@@ -112,7 +120,8 @@ $(document).ready(function() {
     });
 
     // Limpiar campos del formulario al cerrar el modal de editar
-    $("#editarModal").on("hidden.bs.modal", function() {
+    $("#editarModal").on("hidden.bs.modal", function(event) {
+        event.preventDefault();
         $("#editId").val("");
         $("#editCodSigma").val("");
         $("#editCodItem").val("");
@@ -122,7 +131,8 @@ $(document).ready(function() {
     });
 
     // Guardar cambios de edición o agregar nuevo registro
-    $("#guardarEdicion").click(function() {
+    $("#guardarEdicion").click(function(event) {
+        event.preventDefault();
         var id = $("#editId").val();
         var codSigma = $("#editCodSigma").val();
         var codItem = $("#editCodItem").val();
@@ -158,34 +168,39 @@ $(document).ready(function() {
         } 
             
     });
-    $("#guardar").click(function() {
-        var codSigma = $("#addCodSigma").val();
-        var codItem = $("#addCodItem").val();
-        var marca = $("#addMarca").val();
-        var departamento = $("#addDepartamento").val();
-        var descripcion = $("#addDescripcion").val();
+    $("#agregarModal").on('shown.bs.modal', function () {
+        $("#guardar").click(function(event) {
+            event.preventDefault();
+            $("#addCodSigm").focus();
+            var codSigma = $("#addCodSigma").val();
+            var codItem = $("#addCodItem").val();
+            var marca = $("#addMarca").val();
+            var departamento = $("#addDepartamento").val();
+            var descripcion = $("#addDescripcion").val();
 
-        $.ajax({
-            url: "agregar_registro.php",
-            type: "POST",
-            data: {
-                codSigma: codSigma,
-                codItem: codItem,
-                marca: marca,
-                departamento: departamento,
-                descripcion: descripcion
-            },
-            success: function(data) {
-                $("#agregarModal").modal("hide");
-                tabla.ajax.reload();
-            }
-        });
-        $("#agregarModal").on("hidden.bs.modal", function(){
-            $("#addCodSigma").val("");
-            $("#addCodItem").val("");
-            $("#addMarca").val("");
-            $("#addDepartamento").val("");
-            $("#addDescripcion").val("");
+            $.ajax({
+                url: "agregar_registro.php",
+                type: "POST",
+                data: {
+                    codSigma: codSigma,
+                    codItem: codItem,
+                    marca: marca,
+                    departamento: departamento,
+                    descripcion: descripcion
+                },
+                success: function(data) {
+                    $("#agregarModal").modal("hide");
+                    tabla.ajax.reload();
+                }
+            });
+            $("#agregarModal").on("hidden.bs.modal", function(event){
+                event.preventDefault();
+                $("#addCodSigma").val("");
+                $("#addCodItem").val("");
+                $("#addMarca").val("");
+                $("#addDepartamento").val("");
+                $("#addDescripcion").val("");
+            });
         });
     });
 });

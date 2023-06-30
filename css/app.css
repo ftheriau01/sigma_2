@@ -32,3 +32,24 @@ div.dataTables_wrapper div.dataTables_filter input {
     font-weight: bolder !important;
     color: rgb(92, 92, 92) !important;
 }
+div.dtsp-panesContainer {
+    margin-top: 1rem !important;
+}
+button.dtsp-collapseAll, button.dtsp-showAll, button.dtsp-clearAll{
+    color: whitesmoke !important;
+    background-color: #0d6efd !important;
+    width: clamp(6rem, 15%, 8rem) !important;
+    font-size: .7rem !important;
+    font-weight: 600 !important;
+}
+.btn-light:disabled{
+    background-color: rgba(131, 142, 142, 0.592) !important;
+   color: whitesmoke !important;
+}
+.btn-light:hover{
+    background-color: #0d6efd !important;
+    color: whitesmoke !important;
+}
+.badge-secondary {
+    background-color: #0d6efd !important; 
+}

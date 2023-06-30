@@ -105,6 +105,7 @@
                         <select class="form custom-select"  id="editDepartamento" required>
                           <option selected disabled>Seleccione un Departamento</option>
                           <option value="90">90</option>
+                          <option value="93">93</option>
                           <option value="97">97</option>
                           <option value="98">98</option>
                         </select>
@@ -136,11 +137,11 @@
                 <div class="modal-body">
                     <div class="form-group mb-2">
                         <label for="addCodSigma">Código Sigma:</label>
-                        <input type="number" class="form-control" id="addCodSigma" required>
+                        <input type="number" class="form-control" id="addCodSigma" placeholder="123456" autofocus required>
                     </div>
                     <div class="form-group mb-2">
                         <label for="addCodItem">Código Item:</label>
-                        <input type="number" class="form-control" id="addCodItem" required>
+                        <input type="number" class="form-control" id="addCodItem" placeholder="123456" required>
                     </div>
                     <div class="form-group mb-2">
                         <label for="addMarca">Marca:</label>
@@ -160,13 +161,14 @@
                         <select class="form custom-select"  id="addDepartamento" required>
                           <option selected disabled>Seleccione un Departamento</option>
                           <option value="90">90</option>
+                          <option value="93">93</option>
                           <option value="97">97</option>
                           <option value="98">98</option>
                         </select>
                     </div>
                     <div class="form-group mb-2">
                         <label for="addDescripcion">Descripción:</label>
-                        <input type="text" class="form-control" id="addDescripcion" required>
+                        <input type="text" class="form-control" id="addDescripcion" placeholder="Descripcion del producto" required>
                     </div>
                 </div>
                 <div class="modal-footer">
