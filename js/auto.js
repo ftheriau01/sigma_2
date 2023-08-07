@@ -3,7 +3,8 @@ $(document).ready(function() {
         language: {
             url: "//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json"
         },
-        responsive: true,
+        responsive: false,
+        scrollX: true,
         ajax: {
             url: "../auto/cargar_registros.php",
             type: "GET"
@@ -13,7 +14,9 @@ $(document).ready(function() {
         },
         searchPanes: {
             visibleTotal:false,
-            show: false
+            show: false,
+            initCollapsed: true,
+            className: "btn btn-primary"
         },
         columns: [
             { data: "id" },
@@ -57,9 +60,7 @@ $(document).ready(function() {
                 extend: "csv",
                 className: "button-csv" 
             }
-        ],
-        stateSave:true,
-        serveSide:true
+        ]
     });
 
     $(document).on("click", ".eliminar-btn", function(event) {

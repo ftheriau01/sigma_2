@@ -1,7 +1,7 @@
 <?php
 include("conexion.php");
 
-$query = "SELECT * FROM productos";
+$query = "SELECT * FROM maxipali";
 $result = $conn->query($query);
 
 $data = array(); // Array para almacenar los registros
